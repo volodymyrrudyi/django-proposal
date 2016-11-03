@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<a href="{% url 'home' %}">Return to the list of setups</a>
+<hr>
+<h1>Available specifications for setup {{setup.pk}}</h1>
+
+<hr>
+<form method="post" action=".">
+   {% csrf_token %}
+
+  <div class="row margin-top">
+    <div class="col-xs-12">
+      {{ formset.management_form }}
+       <table>
+           {{ formset }}
+       </table>
+    </div>
+  </div>
+
+  <div class="row margin-top">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" type="Submit">Save specs</button>
+    </div>
+  </div>
+
+
+
+</form>
+
+{% endblock %}

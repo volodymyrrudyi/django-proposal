@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from specifications.views import handle_setup, handle_specification
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^setups/(?P<setup_id>[0-9]+)/$', handle_specification, name='setup_details'),
+    url(r'', handle_setup, name='home'),
 ]

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+      <h1>Available setups</h1>
+
+      <table class="table">
+        <tr>
+          <th>PK</th>
+          <th>Description</th>
+        </tr>
+
+        {% for setup in setups %}
+        <tr>
+          <td>{{setup.pk}}</td>
+          <td><a href="{% url 'setup_details' setup.pk %}">{{setup.description}}</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <hr>
+      <form method="post" action=".">
+         {% csrf_token %}
+
+        <div class="row margin-top">
+          <div class="col-xs-12">
+             <table>
+                 {{ form}}
+             </table>
+          </div>
+        </div>
+
+        <div class="row margin-top">
+          <div class="col-xs-12">
+            <button class="btn btn-primary" type="Submit">Add one more setup</button>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+{% endblock %}
