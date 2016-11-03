@@ -27,11 +27,6 @@ def handle_specification(request, setup_id):
         if formset.is_valid():
             formset.save()
     else:
-        data = {
-            'form-TOTAL_FORMS': '1',
-             'form-INITIAL_FORMS': '0',
-            'form-MAX_NUM_FORMS': '',
-         }
         formset = SpecificationFormset(instance=setup)
 
 
